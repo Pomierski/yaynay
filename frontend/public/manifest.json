@@ -1,0 +1,20 @@
+{
+  "short_name": "YayNay",
+  "name": "Easily create and share polls",
+  "icons": [
+    {
+      "src": "256x256",
+      "sizes": "256x256, 192x192, 96x96, 64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#2d3748",
+  "background_color": "#171923"
+}
