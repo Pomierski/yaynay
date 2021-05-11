@@ -3,9 +3,9 @@ import { MysqlError, queryCallback } from "mysql";
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql");
-const port: number = 3000;
 const app = express();
 const config = require("./config.json");
+const port: number = config.server.port;
 
 const connection = mysql.createConnection(config);
 
@@ -23,7 +23,7 @@ const reqSuccesful = (result: string | number | object): string =>
 
 app.use(express.json());
 
-if (config.useCors) {
+if (config.server.useCors) {
   app.use(cors());
 }
 

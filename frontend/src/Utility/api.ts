@@ -1,3 +1,7 @@
+import SERVER_URL from "../server-url.json";
+
+console.log(SERVER_URL);
+
 interface ApiResponse extends Response {
   result: string | object | number;
   alreadyVoted: boolean;
@@ -19,7 +23,7 @@ export const addPoll = (
   title: string,
   onError: Function
 ): Promise<ApiResponse> =>
-  fetch("http://localhost:3000/addPoll", {
+  fetch(`${SERVER_URL}/addPoll`, {
     method: "POST",
     body: JSON.stringify({ title: title }),
     headers: {
@@ -37,7 +41,7 @@ export const addPoll = (
     .then((resp) => resp.result);
 
 export const getPoll = (id: number, onError: Function): Promise<Poll> =>
-  fetch(`http://localhost:3000/getPoll?id=${id}`)
+  fetch(`${SERVER_URL}/getPoll?id=${id}`)
     .then((resp) => {
       if (resp.ok) {
         return resp.json();
@@ -52,7 +56,7 @@ export const checkVote = (
   id: number,
   onError: Function
 ): Promise<ApiResponse> =>
-  fetch(`http://localhost:3000/checkVote?id=${id}`)
+  fetch(`${SERVER_URL}/checkVote?id=${id}`)
     .then((resp) => {
       if (resp.ok) {
         return resp.json();
@@ -68,7 +72,7 @@ export const vote = (
   id: number,
   onError: Function
 ): Promise<ApiResponse> =>
-  fetch("http://localhost:3000/votePoll", {
+  fetch(`${SERVER_URL}/votePoll`, {
     method: "POST",
     body: JSON.stringify({ voteType: voteType, id: id }),
     headers: {

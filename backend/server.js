@@ -39,9 +39,9 @@ exports.__esModule = true;
 var express = require("express");
 var cors = require("cors");
 var mysql = require("mysql");
-var port = 3000;
 var app = express();
 var config = require("./config.json");
+var port = config.server.port;
 var connection = mysql.createConnection(config);
 var sqlError = function (err) {
     return JSON.stringify({
@@ -56,7 +56,7 @@ var reqSuccesful = function (result) {
     });
 };
 app.use(express.json());
-if (config.useCors) {
+if (config.server.useCors) {
     app.use(cors());
 }
 app.get("/getPoll", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {

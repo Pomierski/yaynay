@@ -3,5 +3,8 @@
   "user": "root",
   "password": "",
   "database": "yaynay",
-  "useCors": "true"
+  "server": {
+    "port": 3001,
+    "useCors": true
+  }
 }
