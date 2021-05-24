@@ -13,7 +13,7 @@ CREATE TABLE `polls` (
   `id` int(32) NOT NULL,
   `title` varchar(256) NOT NULL,
   `yayVotes` int(8) NOT NULL,
-  `nayVotes` int(8) NOT NULL,
+  `nayVotes` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
